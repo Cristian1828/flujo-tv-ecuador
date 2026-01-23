@@ -1,0 +1,178 @@
+---
+import { site, waLink } from '../config/site';
+
+const nav = [
+  { href: '#inicio', label: 'Inicio' },
+  { href: '#beneficios', label: 'Beneficios' },
+  { href: '#como-funciona', label: 'Cómo funciona' },
+  { href: '#planes', label: 'Planes' },
+  { href: '#descargas', label: 'Descargas' },
+  { href: '#preguntas', label: 'Preguntas' },
+];
+
+const buyHref = waLink('Hola, quiero comprar Flujo TV Ecuador. ¿Qué plan me recomiendan?');
+const waHref = waLink('Hola, quiero validar compatibilidad y activar Flujo TV Ecuador.');
+---
+
+<header class="fixed inset-x-0 top-0 z-50">
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="mt-4 flex items-center justify-between rounded-2xl glass-lite shadow-soft px-4 py-3">
+      <a href="#inicio" class="flex items-center gap-3">
+        <img
+          src="/logo_flujo.webp"
+          alt="Logo Flujo TV"
+          loading="eager"
+          width="36"
+          height="36"
+          class="h-9 w-9 rounded-xl border border-slate-900/10 bg-white object-contain"
+        />
+        <div>
+          <div class="font-extrabold leading-none text-slate-900">{site.brand.name}</div>
+          <div class="text-[11px] tracking-widest text-slate-900/55 uppercase">{site.brand.premiumLabel}</div>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm text-slate-900/70">
+        {nav.map((item) => (
+          <a class="hover:text-slate-900 transition" href={item.href}>{item.label}</a>
+        ))}
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <button
+          type="button"
+          class="inline-flex md:hidden h-10 w-10 items-center justify-center rounded-xl border border-slate-900/10 bg-white/70 hover:bg-white transition"
+          aria-label="Abrir menú"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          data-menu-button
+        >
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-slate-900">
+            <path d="M4 6h16" />
+            <path d="M4 12h16" />
+            <path d="M4 18h16" />
+          </svg>
+        </button>
+
+        <a
+          href={waHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hidden sm:inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-900/10 bg-white/70 hover:bg-white transition"
+          aria-label="WhatsApp"
+          title="WhatsApp"
+        >
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5 text-emerald-600">
+            <path d="M20.52 3.48A11.89 11.89 0 0 0 12.07 0C5.5 0 .16 5.33.16 11.9c0 2.1.55 4.16 1.6 5.97L0 24l6.31-1.65a11.9 11.9 0 0 0 5.76 1.47h.01c6.57 0 11.9-5.33 11.9-11.9 0-3.18-1.24-6.17-3.46-8.44Zm-8.45 18.3h-.01a9.87 9.87 0 0 1-5.04-1.38l-.36-.22-3.74.98 1-3.65-.24-.38a9.86 9.86 0 0 1-1.5-5.26c0-5.45 4.44-9.88 9.9-9.88a9.82 9.82 0 0 1 7 2.9 9.82 9.82 0 0 1 2.9 7c0 5.45-4.44 9.89-9.88 9.89Z" />
+          </svg>
+        </a>
+
+        <a
+          href={buyHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center rounded-xl bg-slate-900 text-white hover:bg-slate-800 px-4 py-2 text-sm font-semibold transition"
+        >
+          Comprar
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="fixed inset-0 z-50 hidden md:hidden" data-menu-root>
+    <div class="absolute inset-0 bg-slate-950/40" data-menu-overlay></div>
+
+    <div class="absolute right-0 top-0 h-full w-[86%] max-w-sm bg-white border-l border-slate-900/10 p-6">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <img
+            src="/logo_flujo.webp"
+            alt="Logo Flujo TV"
+            loading="eager"
+            width="32"
+            height="32"
+            class="h-8 w-8 rounded-xl border border-slate-900/10 bg-white object-contain"
+          />
+          <div class="font-extrabold text-slate-900">{site.brand.name}</div>
+        </div>
+        <button
+          type="button"
+          class="h-10 w-10 inline-flex items-center justify-center rounded-xl border border-slate-900/10 bg-white hover:bg-slate-50 transition"
+          aria-label="Cerrar menú"
+          data-menu-close
+        >
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-slate-900">
+            <path d="M18 6L6 18" />
+            <path d="M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <nav class="mt-8 space-y-2">
+        {nav.map((item) => (
+          <a
+            class="block rounded-xl border border-slate-900/10 bg-white px-4 py-3 text-slate-900/85 hover:bg-slate-50 transition"
+            href={item.href}
+            data-menu-link
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
+
+      <div class="mt-6 grid grid-cols-2 gap-3">
+        <a
+          href={waHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center rounded-xl border border-slate-900/10 bg-white px-4 py-3 text-slate-900/85 hover:bg-slate-50 transition"
+        >
+          WhatsApp
+        </a>
+        <a
+          href={buyHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center rounded-xl bg-slate-900 px-4 py-3 font-black text-white hover:bg-slate-800 transition"
+        >
+          Comprar
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  (() => {
+    const btn = document.querySelector('[data-menu-button]');
+    const root = document.querySelector('[data-menu-root]');
+    const overlay = document.querySelector('[data-menu-overlay]');
+    const closeBtn = document.querySelector('[data-menu-close]');
+    if (!btn || !root) return;
+
+    const open = () => {
+      root.classList.remove('hidden');
+      btn.setAttribute('aria-expanded', 'true');
+      document.documentElement.style.overflow = 'hidden';
+    };
+
+    const close = () => {
+      root.classList.add('hidden');
+      btn.setAttribute('aria-expanded', 'false');
+      document.documentElement.style.overflow = '';
+    };
+
+    btn.addEventListener('click', () => {
+      if (root.classList.contains('hidden')) open();
+      else close();
+    });
+
+    overlay?.addEventListener('click', close);
+    closeBtn?.addEventListener('click', close);
+    root.querySelectorAll('[data-menu-link]').forEach((a) => a.addEventListener('click', close));
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') close();
+    });
+  })();
+</script>

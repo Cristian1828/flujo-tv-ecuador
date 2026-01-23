@@ -1,0 +1,113 @@
+---
+import { waLink } from '../config/site';
+
+const buyHref = waLink('Hola, quiero comprar Flujo TV Ecuador. ¿Qué plan me recomiendan?');
+const waHref = waLink('Hola, quiero validar compatibilidad y activar Flujo TV Ecuador.');
+---
+
+<section id="inicio" class="relative pt-24">
+  <div
+    class="absolute inset-y-0 left-0 w-1/2 -z-10 opacity-80"
+    style="background: linear-gradient(180deg, rgba(45,212,191,0.45), rgba(45,212,191,0.05));"
+  ></div>
+  <div
+    class="absolute inset-y-0 right-0 w-1/2 -z-10 opacity-80"
+    style="background: linear-gradient(180deg, rgba(251,113,133,0.40), rgba(251,113,133,0.04));"
+  ></div>
+
+  <div
+    class="absolute inset-0 -z-10 bg-center bg-cover bg-no-repeat opacity-30 sm:opacity-35 mix-blend-multiply"
+    style="background-image: url('/hero-ecuador.webp');"
+    aria-hidden="true"
+  ></div>
+
+  <div class="absolute inset-0 -z-10 grain"></div>
+
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="py-6 sm:py-10 flex justify-center">
+      <div class="w-full max-w-4xl text-center">
+        <div class="inline-flex w-fit mx-auto items-center gap-2 rounded-full border border-slate-900/10 bg-white/65 px-3 py-1 text-xs font-semibold text-slate-900/70">
+          <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+          Magis ahora evoluciona: Flujo TV
+        </div>
+
+        <h1 class="mt-5 text-4xl sm:text-5xl font-black leading-[0.98] tracking-tight text-slate-900">
+          <span data-rotate-sentence aria-live="polite" class="transition-all duration-200 will-change-transform">
+            <span class="block">
+              Vive la emoción del
+              <span class="mx-2 inline-flex align-baseline rounded-2xl border px-3 py-1 shadow-soft bg-white/70 border-slate-900/10">
+                <span class="text-emerald-800">Deporte</span>
+              </span>
+            </span>
+            <span class="block sm:whitespace-nowrap">con Flujo TV</span>
+          </span>
+        </h1>
+
+        <p class="mt-4 mx-auto max-w-3xl text-base sm:text-lg text-slate-900/75">
+          Acceso inmediato a la aplicación más estable de Latam. +3.000 canales, Cine y Deportes en 4K real
+        </p>
+
+        <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
+          <a
+            href={buyHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center rounded-2xl bg-slate-900 text-white px-6 py-3 font-bold hover:bg-slate-800 transition shadow-soft"
+          >
+            Solicitar Acceso Inmediato
+          </a>
+          <a
+            href={waHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center rounded-2xl bg-white/80 border border-slate-900/10 px-6 py-3 font-semibold text-slate-900 hover:bg-white transition"
+          >
+            Hablar con un Asesor
+          </a>
+        </div>
+
+        <div class="mt-5 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-slate-900/70">
+          <span class="inline-flex items-center gap-2">
+            <span class="h-1.5 w-1.5 rounded-full bg-slate-900/35"></span>
+            Activación en 5 minutos
+          </span>
+          <span class="inline-flex items-center gap-2">
+            <span class="h-1.5 w-1.5 rounded-full bg-slate-900/35"></span>
+            Sin contratos forzosos
+          </span>
+          <span class="inline-flex items-center gap-2">
+            <span class="h-1.5 w-1.5 rounded-full bg-slate-900/35"></span>
+            Soporte Garantizado
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (() => {
+    const el = document.querySelector('[data-rotate-sentence]');
+    if (!el) return;
+
+    const sentences = [
+      '<span class="block">Vive la emoción del <span class="mx-2 inline-flex align-baseline rounded-2xl border px-3 py-1 shadow-soft bg-white/70 border-slate-900/10"><span class="text-emerald-800">Deporte</span></span></span><span class="block sm:whitespace-nowrap">con Flujo TV</span>',
+      '<span class="block">Disfruta maratones de tus <span class="mx-2 inline-flex align-baseline rounded-2xl border px-3 py-1 shadow-soft bg-white/70 border-slate-900/10"><span class="text-emerald-800">Series</span></span></span><span class="block sm:whitespace-nowrap">Favoritas con Flujo TV</span>',
+      '<span class="block">Accede a miles de <span class="mx-2 inline-flex align-baseline rounded-2xl border px-3 py-1 shadow-soft bg-white/70 border-slate-900/10"><span class="text-emerald-800">Canales</span></span> Premium</span><span class="block sm:whitespace-nowrap">con Flujo TV</span>',
+    ];
+
+    let i = 0;
+    el.innerHTML = sentences[i];
+
+    const tick = () => {
+      el.classList.add('opacity-0', '-translate-y-0.5');
+      window.setTimeout(() => {
+        i = (i + 1) % sentences.length;
+        el.innerHTML = sentences[i];
+        el.classList.remove('opacity-0', '-translate-y-0.5');
+      }, 200);
+    };
+
+    window.setInterval(tick, 4000);
+  })();
+</script>

@@ -1,0 +1,69 @@
+---
+const faqs = [
+  {
+    q: '¿En qué dispositivos funciona Flujo TV?',
+    a: 'Nuestra app brilla en todo el ecosistema <strong>Android</strong>: TV Box, Fire Stick, Google TV, Xiaomi, celulares y tablets. Es una forma estable de ver TV hoy en día.'
+  },
+  {
+    q: '¿Cuántas pantallas puedo usar al mismo tiempo?',
+    a: 'Cualquier plan incluye acceso para <strong>3 pantallas</strong> simultáneas. Puedes ver contenido en la sala mientras en la tablet se reproduce otra cosa, sin interrupciones.'
+  },
+  {
+    q: '¿Qué velocidad de internet necesito?',
+    a: 'Para disfrutar en calidad HD o 4K sin congelamientos, recomendamos <strong>20 Mbps</strong> o más (preferiblemente fibra óptica). Con eso, tu experiencia será fluida.'
+  },
+  {
+    q: '¿Puedo usarlo en Smart TV Samsung o LG?',
+    a: 'Esas marcas tienen sistemas cerrados. La solución profesional es conectar un Fire Stick o TV Box a tu TV. Así podrás instalar nuestra app y tu TV se sentirá más rápida.'
+  },
+  {
+    q: '¿Cuánto tardan en darme el acceso?',
+    a: 'Normalmente es casi inmediato. En cuanto nos envíes el comprobante, generamos tu usuario y contraseña por lo general en menos de <strong>10 minutos</strong>.'
+  }
+];
+
+const stripHtml = (value) => value.replace(/<[^>]*>/g, '');
+
+const faqStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: stripHtml(f.a)
+    }
+  }))
+};
+---
+
+<section id="preguntas" class="py-16 sm:py-20">
+  <div class="mx-auto max-w-6xl px-4">
+    <div>
+      <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-slate-900">Preguntas frecuentes</h2>
+      <p class="mt-2 max-w-2xl text-slate-900/70">
+        Respuestas claras antes de comprar. Si prefieres, te respondemos por WhatsApp.
+      </p>
+
+      <div class="mt-8 grid gap-3 sm:grid-cols-2">
+        {faqs.map((f) => (
+          <details class="group rounded-2xl border border-slate-900/10 bg-white/70 shadow-soft p-5">
+            <summary class="cursor-pointer list-none flex items-center justify-between gap-4">
+              <span class="text-sm font-extrabold text-slate-900">{f.q}</span>
+              <span class="h-9 w-9 rounded-full border border-slate-900/15 bg-white grid place-items-center text-slate-900 group-open:rotate-45 transition shadow-soft">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+                  <path d="M12 5v14" />
+                  <path d="M5 12h14" />
+                </svg>
+              </span>
+            </summary>
+            <p class="mt-3 text-sm text-slate-900/70" set:html={f.a} />
+          </details>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqStructuredData)} />
+</section>

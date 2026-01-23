@@ -1,0 +1,58 @@
+---
+const guides = [
+  {
+    title: 'Android (móvil/tablet)',
+    items: [
+      'Te indicamos cómo instalar la app compatible en tu equipo.',
+      'Inicias sesión con tus datos de activación.',
+      'Ajustamos calidad según tu conexión para una reproducción más estable.'
+    ]
+  },
+  {
+    title: 'TV Box / Google TV / Xiaomi Stick',
+    items: [
+      'Validamos que tu dispositivo sea Android compatible.',
+      'Te guiamos paso a paso para instalar y configurar.',
+      'Dejamos accesos listos y recomendaciones de uso.'
+    ]
+  },
+  {
+    title: 'Fire Stick',
+    items: [
+      'Confirmamos compatibilidad y te orientamos en el proceso.',
+      'Te ayudamos con instalación y ajustes básicos.',
+      'Activamos cuando todo esté correcto.'
+    ]
+  }
+];
+---
+
+<section class="py-16 sm:py-20">
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="flex items-end justify-between gap-6 flex-col md:flex-row">
+      <div>
+        <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-slate-900">Instalación guiada</h2>
+        <p class="mt-2 max-w-2xl text-slate-900/70">
+          Te acompañamos según el dispositivo. La idea es simple: menos vueltas, más claridad.
+        </p>
+      </div>
+      <div class="text-sm text-slate-900/65">Tiempo típico: minutos (según equipo y conexión)</div>
+    </div>
+
+    <div class="mt-10 grid gap-4 sm:grid-cols-2">
+      {guides.map((g) => (
+        <div class="rounded-[2rem] border border-slate-900/10 bg-white/70 shadow-soft p-6">
+          <div class="text-lg font-extrabold text-slate-900">{g.title}</div>
+          <ul class="mt-4 space-y-2 text-sm text-slate-900/70">
+            {g.items.map((it) => (
+              <li class="flex gap-3">
+                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-slate-900/40"></span>
+                <span>{it}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

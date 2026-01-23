@@ -1,0 +1,157 @@
+---
+import { site } from '../config/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+}
+
+const {
+  title = 'Flujo TV Ecuador | Activación rápida en Android y TV Box',
+  description = 'Acceso multimedia con interfaz rápida y soporte garantizado. Compatible con Android, TV Box, Fire Stick, Google TV y Xiaomi Stick en Ecuador. Requiere internet estable.',
+  keywords = [
+    'Flujo TV Ecuador',
+    'activar Flujo TV Ecuador',
+    'planes Flujo TV Ecuador',
+    'Flujo TV Android Ecuador',
+    'Flujo TV en TV Box',
+    'Flujo TV en Fire Stick',
+    'Flujo TV en Google TV',
+    'Flujo TV en Xiaomi Stick',
+    'hasta 3 pantallas simultaneas'
+  ].join(', ')
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, site.canonical).toString();
+const ogImageUrl = new URL('/logo_flujo.webp', site.canonical).toString();
+const pageId = `${canonicalUrl}#webpage`;
+const orgId = `${site.canonical}#organization`;
+const websiteId = `${site.canonical}#website`;
+const serviceId = `${site.canonical}#service`;
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': orgId,
+      name: 'Flujo TV Ecuador',
+      url: site.canonical,
+      logo: ogImageUrl,
+      email: site.supportEmail,
+      contactPoint: [
+        {
+          '@type': 'ContactPoint',
+          contactType: 'customer support',
+          email: site.supportEmail,
+          availableLanguage: ['es']
+        }
+      ],
+      sameAs: []
+    },
+    {
+      '@type': 'WebSite',
+      '@id': websiteId,
+      url: site.canonical,
+      name: 'Flujo TV Ecuador',
+      publisher: { '@id': orgId },
+      inLanguage: 'es-EC'
+    },
+    {
+      '@type': 'WebPage',
+      '@id': pageId,
+      url: canonicalUrl,
+      name: title,
+      description,
+      isPartOf: { '@id': websiteId },
+      about: { '@id': serviceId },
+      inLanguage: 'es-EC',
+      primaryImageOfPage: { '@type': 'ImageObject', url: ogImageUrl }
+    },
+    {
+      '@type': 'Service',
+      '@id': serviceId,
+      name: 'Acceso multimedia para Android y dispositivos compatibles',
+      description: 'Plataforma digital con interfaz rápida y soporte garantizado para dispositivos compatibles.',
+      provider: { '@id': orgId },
+      areaServed: [{ '@type': 'Country', name: 'EC' }],
+      offers: [
+        { '@type': 'Offer', name: 'Plan 1 mes', price: 9, priceCurrency: 'USD', url: canonicalUrl, availability: 'https://schema.org/InStock' },
+        { '@type': 'Offer', name: 'Plan 3 meses', price: 27, priceCurrency: 'USD', url: canonicalUrl, availability: 'https://schema.org/InStock' },
+        { '@type': 'Offer', name: 'Plan 6 meses (incluye 1 mes extra)', price: 49, priceCurrency: 'USD', url: canonicalUrl, availability: 'https://schema.org/InStock' },
+        { '@type': 'Offer', name: 'Plan 12 meses (incluye 2 meses extra)', price: 95, priceCurrency: 'USD', url: canonicalUrl, availability: 'https://schema.org/InStock' }
+      ]
+    }
+  ]
+};
+
+const googleVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION as string | undefined;
+---
+
+<!doctype html>
+<html lang="es-EC">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Flujo TV" />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta name="theme-color" content="#f7fbfc" />
+    <meta name="geo.region" content="EC" />
+    <meta name="geo.placename" content="Ecuador" />
+
+    {googleVerification && <meta name="google-site-verification" content={googleVerification} />}
+
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" href={canonicalUrl} hreflang="es-ec" />
+    <link rel="alternate" href={canonicalUrl} hreflang="x-default" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_EC" />
+    <meta property="og:site_name" content="Flujo TV Ecuador" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <link rel="icon" href="/logo_flujo.webp" type="image/webp" />
+    <link rel="apple-touch-icon" href="/logo_flujo.webp" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+    <meta name="generator" content={Astro.generator} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Commissioner:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  </head>
+
+  <body class="bg-[#f7fbfc] text-slate-900 antialiased overflow-x-hidden">
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+
+  * { box-sizing: border-box; }
+
+  h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: 'Sora', ui-sans-serif, system-ui;
+  }
+
+  p, a, button, li, span, input, select {
+    font-family: 'Commissioner', ui-sans-serif, system-ui;
+  }
+</style>

@@ -1,0 +1,146 @@
+---
+import { site, waLink } from '../config/site';
+
+const installGuideHref = '#como-funciona';
+const howToInstallHref = '#como-funciona';
+const mobileApkHref = site.download?.mobileApkHref || '/apk-movil.apk';
+const downloaderCode = site.download?.downloaderCode || '';
+
+const waInstallHelpHref = waLink('Hola, necesito la guía de instalación de Flujo TV.');
+const waMobileHelpHref = waLink('Hola, necesito ayuda para instalar Flujo TV en mi celular o tablet Android.');
+---
+
+<section id="descargas" class="py-16 sm:py-20">
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="flex items-end justify-between gap-4 flex-col md:flex-row">
+      <div>
+        <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-slate-900">Descargas</h2>
+        <p class="mt-2 max-w-2xl text-slate-900/70">
+          Elige tu experiencia: Sala (TV Box/Stick) o Móvil (celular/tablet). Requiere internet estable.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-6 grid gap-4 lg:grid-cols-2">
+      <article class="group relative overflow-hidden rounded-[1.75rem] border border-slate-900/10 bg-white/70 shadow-soft p-5 sm:p-6">
+        <div class="flex items-start gap-4">
+          <div class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-slate-900 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+              <path d="M15.033 9.44a.647.647 0 0 1 0 1.12l-4.065 2.352a.645.645 0 0 1-.968-.56V7.648a.645.645 0 0 1 .967-.56z"/>
+              <path d="M12 17v4"/>
+              <path d="M8 21h8"/>
+              <rect x="2" y="3" width="20" height="14" rx="2"/>
+            </svg>
+          </div>
+
+          <div class="min-w-0">
+            <div class="text-xs font-extrabold tracking-widest text-slate-900/55 uppercase">Experiencia de Sala</div>
+            <h3 class="mt-1 text-xl sm:text-2xl font-black tracking-tight text-slate-900">Smart TV &amp; TV Box</h3>
+          </div>
+        </div>
+
+        <div class="pointer-events-none absolute bottom-3 right-3 opacity-0 transition duration-300 group-hover:opacity-100" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="h-20 w-20 text-slate-900/10">
+            <path d="M15.033 9.44a.647.647 0 0 1 0 1.12l-4.065 2.352a.645.645 0 0 1-.968-.56V7.648a.645.645 0 0 1 .967-.56z"/>
+            <path d="M12 17v4"/>
+            <path d="M8 21h8"/>
+            <rect x="2" y="3" width="20" height="14" rx="2"/>
+          </svg>
+        </div>
+
+        <div class="mt-4 grid gap-3 sm:grid-cols-2">
+          <div class="grid gap-2 text-sm text-slate-900/75">
+            {[
+              'Fire TV Stick (Todos)',
+              'Google TV / Chromecast',
+              'Xiaomi Mi Box / Stick',
+              'TV Box Android Genérico'
+            ].map((item) => (
+              <div class="flex items-start gap-3">
+                <span class="mt-1.5 h-1.5 w-1.5 rounded-full bg-slate-900/35" aria-hidden="true"></span>
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+
+          <div class="flex flex-col gap-2">
+            {downloaderCode ? (
+              <div class="rounded-2xl border border-slate-900/10 bg-white px-4 py-3">
+                <div class="text-[11px] font-extrabold tracking-wide text-slate-900/55">CÓDIGO DOWNLOADER</div>
+                <div class="mt-0.5 text-lg font-black tracking-tight text-slate-900">{downloaderCode}</div>
+              </div>
+            ) : null}
+
+            <a
+              href={downloaderCode ? howToInstallHref : installGuideHref}
+              class="inline-flex items-center justify-center rounded-2xl bg-slate-900 px-4 py-3 text-sm font-black text-white hover:bg-slate-800 transition"
+            >
+              {downloaderCode ? '¿Cómo instalar?' : 'Ver Guía de Instalación'}
+            </a>
+
+            <p class="text-xs text-slate-900/60">
+              En Smart TV (Samsung/LG) se usa con TV Box/Stick.{' '}
+              <a href={waInstallHelpHref} target="_blank" rel="noopener noreferrer" class="font-bold text-slate-900 hover:underline">
+                Escríbenos al WhatsApp
+              </a>
+              .
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <article class="group relative overflow-hidden rounded-[1.75rem] border border-slate-900/10 bg-white/70 shadow-soft p-5 sm:p-6">
+        <div class="flex items-start gap-4">
+          <div class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-emerald-600 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+              <rect width="10" height="14" x="3" y="8" rx="2"/>
+              <path d="M5 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2h-2.4"/>
+              <path d="M8 18h.01"/>
+            </svg>
+          </div>
+
+          <div class="min-w-0">
+            <div class="text-xs font-extrabold tracking-widest text-slate-900/55 uppercase">Experiencia Móvil</div>
+            <h3 class="mt-1 text-xl sm:text-2xl font-black tracking-tight text-slate-900">Celulares y Tablets</h3>
+          </div>
+        </div>
+
+        <div class="pointer-events-none absolute bottom-3 right-3 opacity-0 transition duration-300 group-hover:opacity-100" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="h-20 w-20 text-emerald-900/10">
+            <rect width="10" height="14" x="3" y="8" rx="2"/>
+            <path d="M5 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2h-2.4"/>
+            <path d="M8 18h.01"/>
+          </svg>
+        </div>
+
+        <div class="mt-4 grid gap-3 sm:grid-cols-2">
+          <div class="grid gap-2 text-sm text-slate-900/75">
+            {['Celulares Android (cualquier marca)', 'Tablets Android (cualquier marca)'].map((item) => (
+              <div class="flex items-start gap-3">
+                <span class="mt-1.5 h-1.5 w-1.5 rounded-full bg-slate-900/35" aria-hidden="true"></span>
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+
+          <div class="flex flex-col justify-start">
+            <a
+              href={mobileApkHref}
+              download
+              class="inline-flex w-full items-center justify-center rounded-2xl bg-emerald-600 px-4 py-3 text-sm font-black text-white hover:bg-emerald-500 transition"
+            >
+              Descargar APK Móvil
+            </a>
+            <p class="mt-2 text-xs text-slate-900/60">
+              ¿Necesitas ayuda?{' '}
+              <a href={waMobileHelpHref} target="_blank" rel="noopener noreferrer" class="font-bold text-slate-900 hover:underline">
+                Escríbenos al WhatsApp
+              </a>
+              .
+            </p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
