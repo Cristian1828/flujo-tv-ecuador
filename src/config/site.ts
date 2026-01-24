@@ -1,6 +1,6 @@
 export const site = {
-  domain: 'ec.flujooficial.com',
-  canonical: 'https://ec.flujooficial.com',
+  domain: 'app.flujooficial.com',
+  canonical: 'https://app.flujooficial.com',
   brand: {
     name: 'Flujo TV',
     premiumLabel: 'Premium'

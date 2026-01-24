@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://ec.flujooficial.com/sitemap.xml
+Sitemap: https://app.flujooficial.com/sitemap.xml

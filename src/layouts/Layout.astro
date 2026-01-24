@@ -8,18 +8,23 @@ interface Props {
 }
 
 const {
-  title = 'Flujo TV Ecuador | Activación rápida en Android y TV Box',
-  description = 'Acceso multimedia con interfaz rápida y soporte garantizado. Compatible con Android, TV Box, Fire Stick, Google TV y Xiaomi Stick en Ecuador. Requiere internet estable.',
+  title = 'Flujo TV Premium | Streaming Digital en Vivo para Latinoamérica',
+  description =
+    'Accede al entretenimiento más estable de la región. Sin contratos ni antenas. Compatible con Android, Fire Stick y TV Box. En Smart TV se requiere TV Box o Stick. Soporte 24/7 en español.',
   keywords = [
-    'Flujo TV Ecuador',
-    'activar Flujo TV Ecuador',
-    'planes Flujo TV Ecuador',
-    'Flujo TV Android Ecuador',
-    'Flujo TV en TV Box',
-    'Flujo TV en Fire Stick',
-    'Flujo TV en Google TV',
-    'Flujo TV en Xiaomi Stick',
-    'hasta 3 pantallas simultaneas'
+    'Flujo TV Premium',
+    'Televisión Digital por Internet',
+    'Streaming Multi-dispositivo',
+    'Entretenimiento Online Estable',
+    'App para Fire Stick',
+    'Configuración Android TV',
+    'Acceso TV Box',
+    'servicio disponible en Chile',
+    'servicio disponible en Colombia',
+    'servicio disponible en Ecuador',
+    'servicio disponible en Bolivia',
+    'servicio disponible en Perú',
+    'servicio disponible en México'
   ].join(', ')
 } = Astro.props;
 
@@ -36,7 +41,7 @@ const structuredData = {
     {
       '@type': 'Organization',
       '@id': orgId,
-      name: 'Flujo TV Ecuador',
+      name: 'Flujo TV Premium',
       url: site.canonical,
       logo: ogImageUrl,
       email: site.supportEmail,
@@ -54,9 +59,9 @@ const structuredData = {
       '@type': 'WebSite',
       '@id': websiteId,
       url: site.canonical,
-      name: 'Flujo TV Ecuador',
+      name: 'Flujo TV Premium',
       publisher: { '@id': orgId },
-      inLanguage: 'es-EC'
+      inLanguage: 'es-419'
     },
     {
       '@type': 'WebPage',
@@ -66,16 +71,24 @@ const structuredData = {
       description,
       isPartOf: { '@id': websiteId },
       about: { '@id': serviceId },
-      inLanguage: 'es-EC',
+      inLanguage: 'es-419',
       primaryImageOfPage: { '@type': 'ImageObject', url: ogImageUrl }
     },
     {
       '@type': 'Service',
       '@id': serviceId,
-      name: 'Acceso multimedia para Android y dispositivos compatibles',
-      description: 'Plataforma digital con interfaz rápida y soporte garantizado para dispositivos compatibles.',
+      name: 'Streaming multi-dispositivo para Latinoamérica',
+      description: 'Televisión digital por internet y entretenimiento online estable con soporte en español para dispositivos compatibles.',
       provider: { '@id': orgId },
-      areaServed: [{ '@type': 'Country', name: 'EC' }],
+      areaServed: [
+        { '@type': 'AdministrativeArea', name: 'Latinoamérica' },
+        { '@type': 'Country', name: 'Chile' },
+        { '@type': 'Country', name: 'Colombia' },
+        { '@type': 'Country', name: 'Ecuador' },
+        { '@type': 'Country', name: 'Bolivia' },
+        { '@type': 'Country', name: 'Perú' },
+        { '@type': 'Country', name: 'México' }
+      ],
       offers: [
         { '@type': 'Offer', name: 'Plan 1 mes', price: 9, priceCurrency: 'USD', url: canonicalUrl, availability: 'https://schema.org/InStock' },
         { '@type': 'Offer', name: 'Plan 3 meses', price: 27, priceCurrency: 'USD', url: canonicalUrl, availability: 'https://schema.org/InStock' },
@@ -90,7 +103,7 @@ const googleVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION as st
 ---
 
 <!doctype html>
-<html lang="es-EC">
+<html lang="es-419">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -102,18 +115,16 @@ const googleVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION as st
     <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
     <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
     <meta name="theme-color" content="#f7fbfc" />
-    <meta name="geo.region" content="EC" />
-    <meta name="geo.placename" content="Ecuador" />
 
     {googleVerification && <meta name="google-site-verification" content={googleVerification} />}
 
     <link rel="canonical" href={canonicalUrl} />
-    <link rel="alternate" href={canonicalUrl} hreflang="es-ec" />
+    <link rel="alternate" href={canonicalUrl} hreflang="es-419" />
     <link rel="alternate" href={canonicalUrl} hreflang="x-default" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="es_EC" />
-    <meta property="og:site_name" content="Flujo TV Ecuador" />
+    <meta property="og:locale" content="es_LA" />
+    <meta property="og:site_name" content="Flujo TV Premium" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
