@@ -2,6 +2,7 @@
 import { site, waLink } from '../config/site';
 
 const baseMessage = 'Hola, quiero comprar Flujo TV Ecuador.';
+const helpHref = waLink('Hola, tengo dudas sobre qué plan elegir. ¿Me pueden asesorar?');
 
 const getMonthsFromPlanId = (id: string) => {
   const match = id.match(/^(\d+)m$/);
@@ -112,7 +113,16 @@ const calcSavingsPercent = (planPrice: number, months: number, oneMonthPrice: nu
     </div>
 
     <p class="mt-6 text-center text-sm text-slate-900/70">
-      ¿Tienes dudas sobre qué plan elegir? <span class="font-black text-slate-900">Escríbenos al WhatsApp</span> y te asesoramos al instante.
+      ¿Tienes dudas sobre qué plan elegir?{' '}
+      <a
+        href={helpHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-black text-slate-900 hover:underline underline-offset-4 decoration-2"
+      >
+        Escríbenos al WhatsApp
+      </a>{' '}
+      y te asesoramos al instante.
     </p>
   </div>
 </section>
