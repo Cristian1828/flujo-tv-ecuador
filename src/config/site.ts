@@ -6,7 +6,7 @@ export const site = {
     premiumLabel: 'Premium'
   },
   supportEmail: 'soporte@flujooficial.com',
-  whatsappNumber: '51921445800',
+  whatsappNumber: '51914326729',
   download: {
     downloaderCode: '',
     mobileApkHref: '/apk-movil.apk'
