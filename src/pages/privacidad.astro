@@ -1,10 +1,27 @@
 ---
+import { site } from '../config/site';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+const pageTitle    = 'Política de Privacidad y Protección de Datos | Flujo TV Oficial 2026';
+const pageDesc     = 'Política de privacidad de Flujo TV: cómo recopilamos, usamos y protegemos tus datos personales. Información transparente sobre el tratamiento de datos para usuarios hispanohablantes en todo el mundo.';
+const pageKeywords = 'politica privacidad Flujo TV, proteccion datos Flujo TV, privacidad Flujo TV, datos personales Flujo TV, seguridad informacion Flujo TV, Flujo TV privacidad usuario, como protege datos Flujo TV';
+const canonical    = `${site.canonical}/privacidad`;
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: site.canonical },
+    { '@type': 'ListItem', position: 2, name: 'Privacidad', item: canonical },
+  ],
+};
 ---
 
-<Layout title="Política de Privacidad | Flujo TV Latinoamérica" description="Consulta la política de privacidad y tratamiento de datos de Flujo TV para Latinoamérica y usuarios hispanohablantes de América.">
+<Layout title={pageTitle} description={pageDesc} keywords={pageKeywords}>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} slot="head" />
+  <link rel="canonical" href={canonical} slot="head" />
   <Header />
 
   <main class="pt-28 pb-16 sm:pb-20">

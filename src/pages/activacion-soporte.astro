@@ -1,10 +1,27 @@
 ---
+import { site } from '../config/site';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+const pageTitle    = 'Política de Activación y Soporte Técnico | Flujo TV Oficial 2026';
+const pageDesc     = 'Consulta las condiciones de activación, soporte técnico 24/7 y garantía de servicio de Flujo TV. Activación asegurada, ayuda con instalación y configuración en todos los dispositivos compatibles.';
+const pageKeywords = 'soporte Flujo TV, activacion Flujo TV, ayuda Flujo TV, soporte tecnico Flujo TV, contacto Flujo TV, asistencia tecnica Flujo TV, Flujo TV soporte 24/7, politica activacion Flujo TV, garantia Flujo TV, Flujo TV ayuda instalacion, soporte configuracion Flujo TV';
+const canonical    = `${site.canonical}/activacion-soporte`;
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: site.canonical },
+    { '@type': 'ListItem', position: 2, name: 'Activación y Soporte', item: canonical },
+  ],
+};
 ---
 
-<Layout title="Política de Activación y Soporte | Flujo TV Latinoamérica" description="Consulta las condiciones de activación y soporte de Flujo TV para Latinoamérica y usuarios hispanohablantes de América.">
+<Layout title={pageTitle} description={pageDesc} keywords={pageKeywords}>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} slot="head" />
+  <link rel="canonical" href={canonical} slot="head" />
   <Header />
 
   <main class="pt-28 pb-16 sm:pb-20">

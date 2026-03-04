@@ -1,5 +1,23 @@
 User-agent: *
-Content-Signal: search=yes,ai-train=no
 Allow: /
+Disallow: /_astro/
+Disallow: /404
 
+# Crawl rate
+Crawl-delay: 1
+
+# AI Training opt-out
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+# Sitemap
 Sitemap: https://app.flujooficial.com/sitemap.xml

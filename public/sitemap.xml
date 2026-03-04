@@ -1,45 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+        http://www.google.com/schemas/sitemap-image/1.1
+        http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
+  
+  <!-- Página principal — Hub global Flujo TV -->
   <url>
     <loc>https://app.flujooficial.com/</loc>
-    <lastmod>2026-02-28</lastmod>
+    <lastmod>2026-03-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://app.flujooficial.com/logo_flujo.webp</image:loc>
+      <image:title>Flujo TV Premium - Streaming Latino con +3,000 canales en vivo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://app.flujooficial.com/hero-ecuador.webp</image:loc>
+      <image:title>Plataforma de streaming Flujo TV en Smart TV y dispositivos Android</image:title>
+    </image:image>
   </url>
+
+  <!-- Hub de descargas e instalación -->
   <url>
     <loc>https://app.flujooficial.com/descargas/</loc>
-    <lastmod>2026-02-28</lastmod>
+    <lastmod>2026-03-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://app.flujooficial.com/logo_flujo.webp</image:loc>
+      <image:title>Descargar Flujo TV APK - Guías de instalación oficiales</image:title>
+    </image:image>
   </url>
+
+  <!-- Guía Android TV / TV Box — Tutorial con código Downloader 481352 -->
   <url>
     <loc>https://app.flujooficial.com/descargas/android-tv/</loc>
-    <lastmod>2026-02-28</lastmod>
+    <lastmod>2026-03-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://app.flujooficial.com/logo_flujo.webp</image:loc>
+      <image:title>Cómo instalar Flujo TV en Android TV - Tutorial paso a paso</image:title>
+    </image:image>
   </url>
+
+  <!-- Guía Google TV / Chromecast — Tutorial con código Downloader 481352 -->
   <url>
     <loc>https://app.flujooficial.com/descargas/google-tv/</loc>
-    <lastmod>2026-02-28</lastmod>
+    <lastmod>2026-03-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://app.flujooficial.com/logo_flujo.webp</image:loc>
+      <image:title>Cómo instalar Flujo TV en Google TV y Chromecast - Manual oficial</image:title>
+    </image:image>
   </url>
+
+  <!-- Política de activación y soporte técnico -->
   <url>
-    <loc>https://app.flujooficial.com/activacion-soporte</loc>
-    <lastmod>2026-02-28</lastmod>
+    <loc>https://app.flujooficial.com/activacion-soporte/</loc>
+    <lastmod>2026-03-03</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
+
+  <!-- Términos y condiciones -->
   <url>
-    <loc>https://app.flujooficial.com/terminos</loc>
-    <lastmod>2026-02-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://app.flujooficial.com/terminos/</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
+
+  <!-- Política de privacidad -->
   <url>
-    <loc>https://app.flujooficial.com/privacidad</loc>
-    <lastmod>2026-02-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://app.flujooficial.com/privacidad/</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
+
 </urlset>

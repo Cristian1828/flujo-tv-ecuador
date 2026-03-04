@@ -1,10 +1,27 @@
 ---
+import { site } from '../config/site';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+const pageTitle    = 'Términos y Condiciones de Uso | Flujo TV Oficial 2026';
+const pageDesc     = 'Términos y condiciones del servicio Flujo TV: compatibilidad de dispositivos (Android TV, Google TV, Fire Stick, TV Box), planes de suscripción, activación, soporte técnico y uso permitido.';
+const pageKeywords = 'terminos condiciones Flujo TV, condiciones uso Flujo TV, terminos servicio Flujo TV, reglas Flujo TV, politica uso Flujo TV, dispositivos compatibles Flujo TV, planes Flujo TV condiciones';
+const canonical    = `${site.canonical}/terminos`;
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: site.canonical },
+    { '@type': 'ListItem', position: 2, name: 'Términos y Condiciones', item: canonical },
+  ],
+};
 ---
 
-<Layout title="Términos y Condiciones | Flujo TV Latinoamérica" description="Consulta los términos y condiciones de uso del servicio Flujo TV para Latinoamérica y usuarios hispanohablantes de América.">
+<Layout title={pageTitle} description={pageDesc} keywords={pageKeywords}>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} slot="head" />
+  <link rel="canonical" href={canonical} slot="head" />
   <Header />
 
   <main class="pt-28 pb-16 sm:pb-20">
